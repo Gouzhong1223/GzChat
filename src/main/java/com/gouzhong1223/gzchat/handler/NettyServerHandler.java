@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @Author : Gouzhong
  * @Blog : www.gouzhong1223.com
- * @Description :
+ * @Description : Netty后置处理器
  * @Date : create by QingSong in 2020-07-10 12:36 上午
  * @Email : gouzhong1223@gmail.com
  * @Since : JDK 1.8
@@ -23,15 +23,15 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Slf4j
 public class NettyServerHandler extends ChannelInboundHandlerAdapter {
-    /**
-     * 管理一个全局map，保存连接进服务端的通道数量
-     */
+
+    // 管理一个全局map，保存连接进服务端的通道数量
     private static final ConcurrentHashMap<ChannelId, ChannelHandlerContext> CHANNEL_MAP = new ConcurrentHashMap<>();
 
+
     /**
+     * 有客户端连接服务器会触发此函数
+     *
      * @param ctx
-     * @DESCRIPTION: 有客户端连接服务器会触发此函数
-     * @return: void
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
