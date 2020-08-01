@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gouzhong1223.gzchat.mapper.UserMessageMapper">
+  <resultMap id="BaseResultMap" type="com.gouzhong1223.gzchat.entity.UserMessage">
+    <!--@mbg.generated-->
+    <!--@Table tb_user_message-->
+    <result column="userId" jdbcType="INTEGER" property="userId" />
+    <result column="messageId" jdbcType="INTEGER" property="messageId" />
+    <result column="read" jdbcType="INTEGER" property="read" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    userId, messageId, `read`
+  </sql>
+  <insert id="insert" parameterType="com.gouzhong1223.gzchat.entity.UserMessage">
+    <!--@mbg.generated-->
+    insert into tb_user_message (userId, messageId, `read`
+      )
+    values (#{userId,jdbcType=INTEGER}, #{messageId,jdbcType=INTEGER}, #{read,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gouzhong1223.gzchat.entity.UserMessage">
+    <!--@mbg.generated-->
+    insert into tb_user_message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        userId,
+      </if>
+      <if test="messageId != null">
+        messageId,
+      </if>
+      <if test="read != null">
+        `read`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="messageId != null">
+        #{messageId,jdbcType=INTEGER},
+      </if>
+      <if test="read != null">
+        #{read,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

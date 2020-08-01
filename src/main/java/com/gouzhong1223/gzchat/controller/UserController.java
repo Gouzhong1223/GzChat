@@ -1,5 +1,6 @@
 package com.gouzhong1223.gzchat.controller;
 
+import com.gouzhong1223.gzchat.dto.ResponseDto;
 import com.gouzhong1223.gzchat.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,5 +28,9 @@ public class UserController {
 
     public UserController(UserService userService) {
         this.userService = userService;
+    }
+
+    public ResponseDto registerUser() {
+        return null;
     }
 }

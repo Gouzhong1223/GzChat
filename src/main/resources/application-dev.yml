@@ -4,7 +4,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/cymmtj?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+      url: jdbc:mysql://localhost:3306/gzchat?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
       username: root
       password: Aabc123456789
       filters: stat,wall,log4j,config
@@ -41,9 +41,9 @@ spring:
 logging:
   level:
     root: info
-    org.gouzhong1223.cymmtj.controller: info
-    org.gouzhong1223.cymmtj.service: info
-    org.gouzhong1223.cymmtj.mapper: info
+    com.gouzhong1223.gzchat.controller: info
+    com.gouzhong1223.gzchat.service: info
+    com.gouzhong1223.gzchat.mapper: info
     com.lucifer.springboot.cache.mapper: debug
 #  path: log/blog.log
 #  file:

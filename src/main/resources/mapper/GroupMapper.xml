@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gouzhong1223.gzchat.mapper.GroupMapper">
+  <resultMap id="BaseResultMap" type="com.gouzhong1223.gzchat.entity.Group">
+    <!--@mbg.generated-->
+    <!--@Table tb_group-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="groupName" jdbcType="VARCHAR" property="groupName" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="holderId" jdbcType="INTEGER" property="holderId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, groupName, createTime, holderId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from tb_group
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from tb_group
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.gouzhong1223.gzchat.entity.Group">
+    <!--@mbg.generated-->
+    insert into tb_group (id, groupName, createTime, 
+      holderId)
+    values (#{id,jdbcType=INTEGER}, #{groupName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{holderId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gouzhong1223.gzchat.entity.Group">
+    <!--@mbg.generated-->
+    insert into tb_group
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="groupName != null and groupName != ''">
+        groupName,
+      </if>
+      <if test="createTime != null">
+        createTime,
+      </if>
+      <if test="holderId != null">
+        holderId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="groupName != null and groupName != ''">
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="holderId != null">
+        #{holderId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gouzhong1223.gzchat.entity.Group">
+    <!--@mbg.generated-->
+    update tb_group
+    <set>
+      <if test="groupName != null and groupName != ''">
+        groupName = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="holderId != null">
+        holderId = #{holderId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gouzhong1223.gzchat.entity.Group">
+    <!--@mbg.generated-->
+    update tb_group
+    set groupName = #{groupName,jdbcType=VARCHAR},
+      createTime = #{createTime,jdbcType=TIMESTAMP},
+      holderId = #{holderId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
