@@ -1,3 +1,64 @@
+spring:
+  datasource:
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/cymmtj?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+      username: root
+      password: Aabc123456789
+      filters: stat,wall,log4j,config
+      max-active: 100
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 50
+      max-pool-prepared-statement-per-connection-size: 20
+  mail:
+    host: smtp.qq.com #发送邮件服务器
+    username: 1162864960@qq.com #QQ邮箱
+    password: qaijircfapqtbacg #客户端授权码
+    protocol: smtp #发送邮件协议
+    properties.mail.smtp.auth: true
+    properties.mail.smtp.port: 465 #端口号465或587
+    properties.mail.display.sendmail: Javen #可以任意
+    properties.mail.display.sendname: Spring Boot Guide Email #可以任意
+    properties.mail.smtp.starttls.enable: true
+    properties.mail.smtp.starttls.required: true
+    properties.mail.smtp.ssl.enable: true
+    default-encoding: utf-8
+    from: 1162864960@qq.com #与上面的username保持一致
+    redis:
+      host: 127.0.0.1 #Redis 地址
+      port: 6379 #Redis 端口
+logging:
+  level:
+    root: info
+    org.gouzhong1223.cymmtj.controller: info
+    org.gouzhong1223.cymmtj.service: info
+    org.gouzhong1223.cymmtj.mapper: info
+    com.lucifer.springboot.cache.mapper: debug
+#  path: log/blog.log
+#  file:
+#    max-size: 10MB
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*.xml
+    - classpath*:com/**/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 netty:
   port: 8086
   url: 127.0.0.1
