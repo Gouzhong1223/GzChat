@@ -1,11 +1,11 @@
 package com.gouzhong1223.gzchat.entity;
 
-import java.io.Serializable;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 /**
  * @Author : Gouzhong
@@ -23,20 +23,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserMessage implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
      * 用户主键
      */
     private Integer userId;
-
     /**
      * 消息 Id
      */
     private Integer messageId;
-
     /**
      * 是否已读 0->未读 1->已读
      */
     private Integer read;
-
-    private static final long serialVersionUID = 1L;
 }

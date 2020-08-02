@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package com.gouzhong1223.gzchat.common;
+package com.gouzhong1223.gzchat.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

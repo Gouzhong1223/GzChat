@@ -4,6 +4,8 @@ import com.gouzhong1223.gzchat.dto.ResponseDto;
 import com.gouzhong1223.gzchat.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,15 +24,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 
-    private final UserService userService;
-
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+    private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    public ResponseDto registerUser() {
+    @GetMapping("/vercode/{email}")
+    public ResponseDto getVerificationCode(@PathVariable("email") String email) {
+
         return null;
     }
 }

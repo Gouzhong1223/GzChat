@@ -14,38 +14,31 @@
  *    limitations under the License.
  */
 
-package com.gouzhong1223.gzchat.common;
+package com.gouzhong1223.gzchat.utils;
 
-import lombok.Getter;
+import java.util.Random;
 
 /**
  * @Author : Gouzhong
  * @Blog : www.gouzhong1223.com
- * @Description : ResultMessage
- * @Date : create by QingSong in 2020-02-01 8:05 下午
+ * @Description : 随机产生六位数字
+ * @Date : create by QingSong in 2020-04-18 6:54 下午
  * @Email : gouzhong1223@gmail.com
  * @Since : JDK 1.8
- * @PackageName : com.gouzhong1223.blog.common
- * @ProjectName : blog
+ * @PackageName : org.gouzhong1223.cymmtj.util
+ * @ProjectName : cymmtj
  * @Version : 1.0.0
  */
-@Getter
-public enum ResultMessage {
+public class RandomNumber {
+    public static Integer createNumber() {
+        String integer = "";
+        for (int i = 0; i < 6; i++) {
+            integer += new Random().nextInt(10);
+        }
+        return Integer.valueOf(integer);
+    }
 
-    SUCCESS("操作成功！"),
-    FAIL("操作失败!"),
-    ALREADYREGISTERED("邮箱已经被注册"),
-    ISEXIST("存在同名标签或者分类"),
-    LOGINFAIL("登录失败"),
-    UNLOGIN("未登录"),
-    SERVER("服务器打瞌睡啦！"),
-    EMAILCANNOTBEEMPTY("邮箱不能为空"),
-    EMAILFORMATISINCORRECT("邮箱格式不正确"),
-    UPLOADIMAGEFAILED("上传图片失败！");
-
-    private final String messaage;
-
-    ResultMessage(String messaage) {
-        this.messaage = messaage;
+    public static void main(String[] args) {
+        System.out.println(createNumber());
     }
 }

@@ -34,7 +34,7 @@ public enum ResultCode {
 
     SUCCESS(200),
     FAIL(201),
-    VALUE_NULL(202),
+    ALREADYREGISTERED(202),
     ISEXIST(203),
     LOGINFAIL(204),
     UNLOGIN(205),

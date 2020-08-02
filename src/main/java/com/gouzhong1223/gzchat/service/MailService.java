@@ -14,38 +14,37 @@
  *    limitations under the License.
  */
 
-package com.gouzhong1223.gzchat.common;
+package com.gouzhong1223.gzchat.service;
 
-import lombok.Getter;
 
 /**
  * @Author : Gouzhong
  * @Blog : www.gouzhong1223.com
- * @Description : ResultMessage
- * @Date : create by QingSong in 2020-02-01 8:05 下午
+ * @Description :
+ * @Date : create by QingSong in 2020-05-05 21:22
  * @Email : gouzhong1223@gmail.com
  * @Since : JDK 1.8
- * @PackageName : com.gouzhong1223.blog.common
- * @ProjectName : blog
+ * @PackageName : org.gouzhong1223.cymmtj.service
+ * @ProjectName : cymmtj
  * @Version : 1.0.0
  */
-@Getter
-public enum ResultMessage {
+public interface MailService {
 
-    SUCCESS("操作成功！"),
-    FAIL("操作失败!"),
-    ALREADYREGISTERED("邮箱已经被注册"),
-    ISEXIST("存在同名标签或者分类"),
-    LOGINFAIL("登录失败"),
-    UNLOGIN("未登录"),
-    SERVER("服务器打瞌睡啦！"),
-    EMAILCANNOTBEEMPTY("邮箱不能为空"),
-    EMAILFORMATISINCORRECT("邮箱格式不正确"),
-    UPLOADIMAGEFAILED("上传图片失败！");
+    /**
+     * 发送文本邮件
+     *
+     * @param to
+     * @param subject
+     * @param content
+     */
+    void sendSimpleMail(String to, String subject, String content);
 
-    private final String messaage;
+    /**
+     * 判断邮箱是否已经注册
+     *
+     * @param email 邮箱地址
+     * @return
+     */
+    boolean determineRegistered(String email);
 
-    ResultMessage(String messaage) {
-        this.messaage = messaage;
-    }
 }

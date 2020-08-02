@@ -1,12 +1,12 @@
 package com.gouzhong1223.gzchat.entity;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * @Author : Gouzhong
@@ -24,40 +24,33 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Message implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
      * 消息主键
      */
     private Integer id;
-
     /**
      * 消息内容
      */
     private String context;
-
     /**
      * 消息创建时间
      */
     private LocalDateTime createTime;
-
     /**
      * 发送人 Id
      */
     private Integer sendUserId;
-
     /**
      * 发送人用户名
      */
     private String sendUserName;
-
     /**
      * 是否为群聊信息
      */
     private Integer groupChat;
-
     /**
      * 接收人 Id
      */
     private Integer acceptUserId;
-
-    private static final long serialVersionUID = 1L;
 }

@@ -1,6 +1,7 @@
 package com.gouzhong1223.gzchat.mapper;
 
 import com.gouzhong1223.gzchat.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @Author : Gouzhong
@@ -25,4 +26,13 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    /**
+     * 根据邮箱查找用户
+     *
+     * @param email 邮箱地址
+     * @return
+     */
+    User selectOneByEmail(@Param("email") String email);
+
 }

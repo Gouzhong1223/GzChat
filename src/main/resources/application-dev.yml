@@ -60,5 +60,5 @@ mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 netty:
-  port: 8086
-  url: 127.0.0.1
+  port: 8085
+  url: webSocket

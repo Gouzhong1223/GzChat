@@ -16,7 +16,7 @@
 
 package com.gouzhong1223.gzchat.handler;
 
-import com.gouzhong1223.gzchat.common.GzChatException;
+import com.gouzhong1223.gzchat.exception.GzChatException;
 import com.gouzhong1223.gzchat.common.ResultCode;
 import com.gouzhong1223.gzchat.dto.ResponseDto;
 import org.springframework.http.HttpStatus;
@@ -25,12 +25,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import javax.servlet.http.HttpServletRequest;
-
 /**
  * @Author : Gouzhong
  * @Blog : www.gouzhong1223.com
- * @Description :
+ * @Description : {@link Exception}拦截器
  * @Date : create by QingSong in 2020-04-21 12:35 下午
  * @Email : gouzhong1223@gmail.com
  * @Since : JDK 1.8
@@ -44,14 +42,14 @@ public class ControllerExceptionHandler {
     @ExceptionHandler(GzChatException.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ResponseDto handlerBlogException(HttpServletRequest request, GzChatException ex) {
+    public ResponseDto handlerBlogException(GzChatException ex) {
         return new ResponseDto(ex.getCode(), ex.getMessage());
     }
 
     @ExceptionHandler(Exception.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ResponseDto handlerAllException(HttpServletRequest request, Exception ex) {
+    public ResponseDto handlerAllException(Exception ex) {
         return new ResponseDto(ResultCode.FAIL.getCode(), ex.getMessage());
     }
 

@@ -24,30 +24,25 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
      * 用户主键
      */
     private Integer id;
-
     /**
      * 用户名
      */
     private String userName;
-
     /**
      * 用户密码
      */
     private String password;
-
     /**
      * 用户邮箱
      */
     private String email;
-
     /**
      * 最后一次登录时间
      */
     private LocalDateTime lastLoginTime;
-
-    private static final long serialVersionUID = 1L;
 }
