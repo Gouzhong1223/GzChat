@@ -35,7 +35,7 @@ public enum ResultMessage {
     SUCCESS("操作成功！"),
     FAIL("操作失败!"),
     ALREADYREGISTERED("邮箱已经被注册"),
-    ISEXIST("存在同名标签或者分类"),
+    VERIFICATIONCODEERROR("验证码错误"),
     LOGINFAIL("登录失败"),
     UNLOGIN("未登录"),
     SERVER("服务器打瞌睡啦！"),

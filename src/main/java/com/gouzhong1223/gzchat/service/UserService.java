@@ -23,5 +23,15 @@ public interface UserService {
      */
     ResponseDto getVerificationCode(String emailAddress);
 
+    /**
+     * 用户注册
+     *
+     * @param username         用户名
+     * @param password         密码
+     * @param verificationCode 验证码
+     * @param emailAddress     邮箱地址
+     * @return
+     */
+    ResponseDto registerUser(String username, String password, String emailAddress, String verificationCode);
 
 }

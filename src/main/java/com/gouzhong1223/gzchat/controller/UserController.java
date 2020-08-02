@@ -1,13 +1,11 @@
 package com.gouzhong1223.gzchat.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.gouzhong1223.gzchat.dto.ResponseDto;
 import com.gouzhong1223.gzchat.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author : Gouzhong
@@ -33,7 +31,15 @@ public class UserController {
 
     @GetMapping("/vercode/{email}")
     public ResponseDto getVerificationCode(@PathVariable("email") String email) {
+        return userService.getVerificationCode(email);
+    }
 
-        return null;
+    @PostMapping("register")
+    public ResponseDto registerUser(@RequestBody JSONObject jsonObject) {
+        String username = jsonObject.getString("username");
+        String password = jsonObject.getString("password");
+        String email = jsonObject.getString("email");
+        String vercode = jsonObject.getString("vercode");
+        return userService.registerUser(username, password, email, vercode);
     }
 }
